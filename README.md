@@ -50,3 +50,12 @@ Changes for each version of the field pack.
 Version | Author | Comment
 --------|--------|--------
 1.0 | Guenter Grossberger | First version of the field pack.
+
+## Support URL
+https://github.com/CA-APM-stage/ca-apm-example-docker-tomcat
+
+## Short Description
+This example shows how to install a CA APM Java agent to Tomcat on Docker
+
+## Categories
+Examples, Cloud
