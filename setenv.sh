@@ -11,4 +11,4 @@ sed -Ei 's/#introscope.agent.browseragent.enabled=false/introscope.agent.browser
 sed -Ei 's/#browseragent.pbd/browseragent.pbd/' $WILY_HOME/core/config/tomcat-typical.pbl
 
 # now add the APM agent to Tomcat startup parameters
-export CATALINA_OPTS="$CATALINA_OPTS -Xmx2048m -javaagent:$WILY_HOME/Agent.jar -Dcom.wily.introscope.agentProfile=$WILY_HOME/core/config/IntroscopeAgent.profile -Dcom.wily.introscope.agent.agentName=$AGENT_NAME"
+export CATALINA_OPTS="$CATALINA_OPTS -Xmx$HEAP -javaagent:$WILY_HOME/Agent.jar -Dcom.wily.introscope.agentProfile=$WILY_HOME/core/config/IntroscopeAgent.profile -Dcom.wily.introscope.agent.agentName=$AGENT_NAME"

@@ -4,7 +4,7 @@
 This example shows how to install a CA APM Java agent in a Tomcat [Docker](http://www.docker.com/) container along with your application.
 
 ## APM version
-APM 10.1
+APM 10.2
 
 ## Supported third party versions
 Tested with Docker 1.8.2 and 1.9.1.
@@ -24,6 +24,7 @@ None.
 
 ## Configuration
 * Copy the relevant lines from the supplied [Dockerfile](Dockerfile) into the Dockerfile of your application.
+* Copy `setenv.sh` into your Docker build directory or merge with your existing `setenv.sh`
 * In your Dockerfile set the environment variables ``INTROSCOPE_VERSION`` to the the version of the Introscope Agent that you downloaded.
 * Set the environment variables ``EM_HOST``, ``EM_PORT`` to point to your CA APM Enterprise Manager and supply an ``AGENT_NAME``. You can do this directly in the Dockerfile when you build the image, from the command line when you start the container or a config file for e.g. [Docker Compose](http://www.docker.com/products/docker-compose).
 
@@ -58,4 +59,4 @@ https://github.com/CA-APM-stage/ca-apm-example-docker-tomcat
 This example shows how to install a CA APM Java agent to Tomcat on Docker
 
 ## Categories
-Examples, Cloud
+Examples, Cloud, Virtualization/Containers
