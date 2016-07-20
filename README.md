@@ -54,7 +54,7 @@ Version | Author | Comment
 1.1 | Guenter Grossberger | build from application image, add browser agent switch
 
 ## Support URL
-https://github.com/CA-APM-stage/ca-apm-example-docker-tomcat
+https://github.com/CA-APM/ca-apm-example-docker-tomcat/issues
 
 ## Short Description
 This example shows how to install a CA APM Java agent to Tomcat on Docker.
