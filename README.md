@@ -1,5 +1,8 @@
 # CA APM Example for Tomcat in Docker (1.0)
 
+## Short Description
+This example shows how to install a CA APM Java agent in a Tomcat [Docker](http://www.docker.com/) container along with your application.
+
 ## Description
 This example shows how to install a CA APM Java agent in a Tomcat [Docker](http://www.docker.com/) container along with your application.
 
@@ -23,10 +26,10 @@ Tested with Docker 1.8.2 and 1.9.1.
 None.
 
 ## Configuration
-* Copy the relevant lines from the supplied [Dockerfile](Dockerfile) into the Dockerfile of your application.
-* Copy `setenv.sh` into your Docker build directory or merge with your existing `setenv.sh`
-* In your Dockerfile set the environment variables ``INTROSCOPE_VERSION`` to the the version of the Introscope Agent that you downloaded.
-* Set the environment variables ``EM_HOST``, ``EM_PORT`` to point to your CA APM Enterprise Manager and supply an ``AGENT_NAME``. You can do this directly in the Dockerfile when you build the image, from the command line when you start the container or a config file for e.g. [Docker Compose](http://www.docker.com/products/docker-compose).
+* In [Dockerfile](Dockerfile) replace ``mytomcatapplication`` with your application image.
+* if you alredy have a `setenv.sh` script in your container merge the supplied script with your existing `setenv.sh`
+* In the Dockerfile set the environment variables ``INTROSCOPE_VERSION`` to the the version of the Introscope Agent that you downloaded.
+* Optional: Set the environment variables ``EM_HOST``, ``EM_PORT`` to point to your CA APM Enterprise Manager and supply an ``AGENT_NAME``. You can do this directly in the Dockerfile when you build the image, from the command line when you start the container or a config file for e.g. [Docker Compose](http://www.docker.com/products/docker-compose).
 
 ## Creating the Docker image
 Run ``[sudo] docker build -t <image name>``.
@@ -51,6 +54,7 @@ Changes for each version of the field pack.
 Version | Author | Comment
 --------|--------|--------
 1.0 | Guenter Grossberger | First version of the field pack.
+1.1 | Guenter Grossberger | build from application image, add browser agent switch
 
 ## Support URL
 https://github.com/CA-APM-stage/ca-apm-example-docker-tomcat
