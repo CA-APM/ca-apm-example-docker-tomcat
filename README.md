@@ -1,8 +1,5 @@
 # CA APM Example for Tomcat in Docker (1.0)
 
-## Short Description
-This example shows how to install a CA APM Java agent in a Tomcat [Docker](http://www.docker.com/) container along with your application.
-
 ## Description
 This example shows how to install a CA APM Java agent in a Tomcat [Docker](http://www.docker.com/) container along with your application.
 
