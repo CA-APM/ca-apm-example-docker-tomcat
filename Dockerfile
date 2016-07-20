@@ -1,4 +1,5 @@
-FROM tomcat:8-jre7
+#FROM tomcat:8-jre7
+FROM mytomcatapplication:latest
 
 MAINTAINER guenter.grossberger@ca.com
 
@@ -8,9 +9,7 @@ ENV EM_HOST=em
 ENV EM_PORT=5001
 ENV AGENT_NAME="Docker_Tomcat_Agent"
 ENV HEAP=2048m
-
-# install application
-#COPY application.war /usr/local/tomcat/webapps/application.war
+ENV ENABLE_BROWSER_AGENT=true
 
 # install agent
 ADD IntroscopeAgentFiles-NoInstaller${INTROSCOPE_VERSION}tomcat.unix.tar /usr/local/tomcat
