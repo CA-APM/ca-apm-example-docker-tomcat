@@ -26,7 +26,8 @@ None.
 * In [Dockerfile](Dockerfile) replace ``mytomcatapplication`` with your application image.
 * If you already have a `setenv.sh` script in your container merge the supplied script with your existing `setenv.sh`.
 * In the Dockerfile set the environment variables ``INTROSCOPE_VERSION`` to the the version of the Introscope Agent that you downloaded.
-* Optional: Set the environment variables ``EM_HOST``, ``EM_PORT`` to point to your CA APM Enterprise Manager and supply an ``AGENT_NAME``. You can do this directly in the Dockerfile when you build the image, from the command line when you start the container or a config file for e.g. [Docker Compose](http://www.docker.com/products/docker-compose).
+* Optional: set the environment variables ``EM_HOST``, ``EM_PORT`` to point to your CA APM Enterprise Manager and supply an ``AGENT_NAME``. You can do this directly in the Dockerfile when you build the image, from the command line when you start the container or a config file for e.g. [Docker Compose](http://www.docker.com/products/docker-compose).
+* Optional: set the environment variable `AGENT_HOSTNAME' to a persistent hostname (e.g. the contianer name) that will be used instead of the container id for identifying the CA APM agent.
 
 ## Creating the Docker image
 Run ``[sudo] docker build -t <image name>``.
