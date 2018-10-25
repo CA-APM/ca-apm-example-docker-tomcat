@@ -1,0 +1,17 @@
+#FROM tomcat:8-jre7
+FROM mytomcatapplication:latest
+
+MAINTAINER guenter.grossberger@ca.com
+
+ENV WILY_HOME=$CATALINA_HOME/wily \
+    AGENT_NAME="Docker Tomcat Agent" \
+    AGENT_HOSTNAME="docker_tomcat_01" \
+    HEAP=2048m
+
+# install agent
+ADD Tomcat_v1.tar $CATALINA_HOME
+
+# configure CA APM java agent
+COPY setenv-dxi.sh $WILY_HOME/setenv.sh
+RUN cat $WILY_HOME/setenv.sh >> $CATALINA_HOME/bin/setenv.sh \
+    && chmod +x $CATALINA_HOME/bin/setenv.sh

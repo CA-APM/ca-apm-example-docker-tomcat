@@ -16,24 +16,33 @@ Tested with Docker 1.8.2 and 1.9.1.
 # Installation Instructions
 
 ## Prerequisites
+### Digital Experience Insight (DXI)
 * Install [Docker](http://www.docker.com/) .
-* Download ``IntroscopeAgentFiles-NoInstaller<version>tomcat.unix.tar`` from the [CA Download Center](http://support.ca.com) and copy it to the Docker build directory.
+* Download the Tomcat agent from CA DXI APM: click on *Download Agent* in the blue bar at the top of the page and select *Tomcat*. Copy `Tomcat_v1.tar` to the Docker build directory.
+
+### CA APM On-premise
+* Install [Docker](http://www.docker.com/) .
+* Download `IntroscopeAgentFiles-NoInstaller<version>tomcat.unix.tar` from the [CA Download Center](http://support.ca.com) and copy it to the Docker build directory.
 
 ## Dependencies
 None.
 
 ## Configuration
-* In [Dockerfile](Dockerfile) replace ``mytomcatapplication`` with your application image.
+* In [Dockerfile](Dockerfile) replace `mytomcatapplication` with your application image.
 * If you already have a `setenv.sh` script in your container merge the supplied script with your existing `setenv.sh`.
-* In the Dockerfile set the environment variables ``INTROSCOPE_VERSION`` to the the version of the Introscope Agent that you downloaded.
-* Optional: set the environment variables ``EM_HOST``, ``EM_PORT`` to point to your CA APM Enterprise Manager and supply an ``AGENT_NAME``. You can do this directly in the Dockerfile when you build the image, from the command line when you start the container or a config file for e.g. [Docker Compose](http://www.docker.com/products/docker-compose).
-* Optional: set the environment variable `AGENT_HOSTNAME' to a persistent hostname (e.g. the contianer name) that will be used instead of the container id for identifying the CA APM agent.
+* Optional: set the environment variable `AGENT_HOSTNAME` to a persistent hostname (e.g. the container name) that will be used instead of the container id for identifying the CA APM agent. You can also set the `AGENT_NAME` directly in the Dockerfile when you build the image, from the command line when you start the container or a config file for e.g. [Docker Compose](http://www.docker.com/products/docker-compose).
+
+
+### For On-premise APM Only
+* In the Dockerfile set the environment variables `INTROSCOPE_VERSION` to the the version of the Introscope Agent that you downloaded.
+* Optional: set the environment variables `EM_HOST`, `EM_PORT` to point to your CA APM Enterprise Manager. You can do this directly in the Dockerfile when you build the image, from the command line when you start the container or a config file for e.g. [Docker Compose](http://www.docker.com/products/docker-compose).
 
 ## Creating the Docker image
-Run ``[sudo] docker build -t <image name>``.
+* For on-premise APM: run `[sudo] docker build -t <image name>`
+* For DXI: run `[sudo] docker build -f Dockerfile-dxi -t <image name>`
 
 ## Starting a Docker container
-Run ``[sudo] docker run [options] <image name>`` or start the container via the tool of your choice.
+Run `[sudo] docker run [options] <image name>` or start the container via the tool of your choice.
 
 ## Debugging and Troubleshooting
 Take a look at the output of the docker build command and the log files inside the container. Connect to the container in interactive mode and run the commands from the Dockerfile manually.
@@ -53,6 +62,7 @@ Version | Author | Comment
 --------|--------|--------
 1.0 | Guenter Grossberger | First version of the example.
 1.1 | Guenter Grossberger | build from application image, add browser agent switch
+1.2 | Guenter Grossberger | added instructions for DXI
 
 ## Support URL
 https://github.com/CA-APM/ca-apm-example-docker-tomcat/issues
